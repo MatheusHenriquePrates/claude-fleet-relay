@@ -1,0 +1,26 @@
+[Unit]
+Description=Claude Fleet Relay — inter-bot HTTP message bus
+Documentation=https://github.com/MatheusHenriquePrates/claude-fleet-relay
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=relay
+Group=relay
+WorkingDirectory=/opt/claude-fleet-relay
+EnvironmentFile=/etc/claude-fleet-relay.env
+ExecStart=/usr/bin/node /opt/claude-fleet-relay/relay.mjs
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+# Hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/claude-fleet-relay/logs
+
+[Install]
+WantedBy=multi-user.target

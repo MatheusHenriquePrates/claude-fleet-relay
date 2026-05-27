@@ -1,0 +1,22 @@
+{
+  "name": "claude-fleet-relay",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "relay.mjs",
+  "description": "HTTP relay for inter-bot communication in a Claude Code fleet on Kubernetes. ACL-controlled directional networks, HMAC auth, delivery via kubectl exec.",
+  "scripts": {
+    "start": "node relay.mjs",
+    "dev": "node --watch relay.mjs",
+    "test": "node --test test/"
+  },
+  "license": "MIT",
+  "author": "Matheus Henrique Prates Santos",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MatheusHenriquePrates/claude-fleet-relay"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {}
+}

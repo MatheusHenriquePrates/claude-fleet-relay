@@ -1,0 +1,25 @@
+{
+  "$schema": "../docs/networks.schema.json",
+  "$comment": "Each network has a mode (bidirectional or unidirectional), a list of members, and a token_env that names the env var holding its HMAC token.",
+  "networks": {
+    "team": {
+      "mode": "bidirectional",
+      "token_env": "NET_TEAM_TOKEN",
+      "members": {
+        "alpha": { "namespace": "claude-code-alpha" },
+        "beta":  { "namespace": "claude-code-beta" },
+        "gamma": { "namespace": "claude-code-gamma" }
+      }
+    },
+    "admin-to-workers": {
+      "mode": "unidirectional",
+      "token_env": "NET_ADMIN_TO_WORKERS_TOKEN",
+      "initiators": ["admin"],
+      "members": {
+        "admin":    { "namespace": "claude-code-admin" },
+        "worker-1": { "namespace": "claude-code-worker-1" },
+        "worker-2": { "namespace": "claude-code-worker-2" }
+      }
+    }
+  }
+}
